@@ -7,6 +7,8 @@ const AddTask = ({addTask}) => {
   const onSubmit = (e) =>{
     e.preventDefault();
     addTask({text,day, isDone:false})
+    setText("");
+    setDay("");
   //   console.log(text)
   //   console.log(day)
   }
@@ -23,6 +25,7 @@ const AddTask = ({addTask}) => {
           placeholder="AddTask"
           required
           onChange={(e) =>setText(e.target.value)}
+          value={text}
         />
       </div>
       <div className="form-control">
@@ -34,6 +37,7 @@ const AddTask = ({addTask}) => {
           placeholder="Add Day & Time"
           required
           onChange={(e) =>setDay(e.target.value)}
+          value={day}
         />
       </div>
       <input type="submit" value="Save Task" className="btn btn-block" />

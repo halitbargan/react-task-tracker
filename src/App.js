@@ -33,15 +33,25 @@ function App() {
 
   //ADD TASK
   const addTask = (newTask) =>{
-  const id= Math.floor(Math.random()*100 + 1);
+  const id= Math.floor(Math.random() * 100 + 1);
   const addNewTask = {id, ...newTask};
   setTasks([...tasks, addNewTask]);
+}
+
+//TOGGLE DONE
+const toggleDone = (toogleDoneId) =>{
+  console.log("double click", toggleDoneId);
+  setTasks(tasks.map((task)=> task.id === toggleDoneId ? 
+  {...task, isDone: !task.isDone } : task)
+
+  )
+
 }
 
   return (
     <div className="container">
       <Header title="TASK TRACKER" />
-      <AddTask />
+      <AddTask addTask={addTask}/>
       <Tasks tasks={tasks} deleteTask={deleteTask}/>
     </div>
   );
