@@ -30,6 +30,14 @@ function App() {
     console.log("delete Task", deletedTaskId)
     setTasks(tasks.filter((task)=> task.id !== deletedTaskId));
   }
+
+  //ADD TASK
+  const addTask = (newTask) =>{
+  const id= Math.floor(Math.random()*100 + 1);
+  const addNewTask = {id, ...newTask};
+  setTasks([...tasks, addNewTask]);
+}
+
   return (
     <div className="container">
       <Header title="TASK TRACKER" />
